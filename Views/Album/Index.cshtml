@@ -6,6 +6,15 @@
 
 <h1>Albums</h1>
 
+<div class="pb-5">
+    <h2>Search Album</h2>
+    @* form that uses the search method in controller *@
+    <form asp-action="Search">
+        <input type="text" name="searchString">
+        <input class="btn-primary" type="submit" value="Search">
+    </form>
+</div>
+
 <p>
     <a asp-action="Create">Create New Album</a>
 </p>

@@ -155,14 +155,30 @@ namespace music_collection.Controllers
             {
                 _context.Albums.Remove(album);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AlbumExists(int id)
         {
-          return (_context.Albums?.Any(e => e.AlbumId == id)).GetValueOrDefault();
+            return (_context.Albums?.Any(e => e.AlbumId == id)).GetValueOrDefault();
         }
+
+        public async Task<IActionResult> Search(string searchString)
+        {
+            //if the serach string is null or empty, return the index view with all the albums
+            if (string.IsNullOrWhiteSpace(searchString))
+            {
+                return View("Index", await _context.Albums.Include(a => a.Artist).ToListAsync());
+            }
+
+            //searchstring is not null, return result to index view. Match string to albumname and/or artistname
+            var albums = await _context.Albums.Include(a => a.Artist)
+            .Where(a => a.AlbumName.Contains(searchString) || a.Artist.ArtistName.Contains(searchString))
+            .ToListAsync();
+            return View("Index", albums);
+        }
+
     }
 }
