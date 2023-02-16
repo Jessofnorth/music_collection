@@ -1,10 +1,10 @@
 @model music_collection.Models.Friend
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Friend";
 }
 
-<h1>Create</h1>
+<h1>Create new:</h1>
 
 <h4>Friend</h4>
 <hr />
@@ -27,14 +27,14 @@
                 <input asp-for="Phonenumber" class="form-control" />
                 <span asp-validation-for="Phonenumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group pt-3">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
+<div class="pt-3">
     <a asp-action="Index">Back to List</a>
 </div>
 

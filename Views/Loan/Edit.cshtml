@@ -1,10 +1,10 @@
 @model music_collection.Models.Loan
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Loan";
 }
 
-<h1>Edit</h1>
+<h1>Edit:</h1>
 
 <h4>Loan</h4>
 <hr />
@@ -28,14 +28,14 @@
                 <input asp-for="LoanDate" class="form-control" />
                 <span asp-validation-for="LoanDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group pt-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
+<div class="pt-3">
     <a asp-action="Index">Back to List</a>
 </div>
 
