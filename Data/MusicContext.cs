@@ -10,9 +10,9 @@ namespace music_collection.Data
             //constructor
         }
 
-        public DbSet<Artist>? Artists { get; set; }
+        public DbSet<Artist>? Artists { get; set; } 
         public DbSet<Album>? Albums { get; set; }
-        public DbSet<music_collection.Models.Friend> Friend { get; set; } = default!;
-        public DbSet<music_collection.Models.Loan> Loan { get; set; } = default!;
+        public DbSet<Friend>? Friend { get; set; } 
+        public DbSet<Loan>? Loan { get; set; }
     }
 }
